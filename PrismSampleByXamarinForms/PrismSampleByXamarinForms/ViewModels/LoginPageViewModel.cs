@@ -114,6 +114,9 @@ namespace PrismSampleByXamarinForms.ViewModels
                 var result = _service.Login(Email, Password);
                 AfterProcForLogin(result);
             });
+            
+            // 初期処理
+            InitializeLoginPage();
 
         }
 
