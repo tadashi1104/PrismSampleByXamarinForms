@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismSampleByXamarinForms.Views.InputCreditInfoAPage"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="#E4ECEF">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="0,20,0,0" Spacing="10" Padding="5">
+                <Label Text="情報登録" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center" />
+            </StackLayout>
+
+            <ScrollView>
+                <StackLayout Padding="15">
+                    <Label Text="お名前" FontSize="Large" TextColor="Green" />
+                    <Label Text="お名前（漢字）" FontSize="Medium" TextColor="Green" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                        <Entry Text="{x:Binding RepresentativeSei}" 
+                           FontSize="Medium" 
+                           WidthRequest="175"
+                           Placeholder="田中" />
+                        <Entry Text="{x:Binding RepresentativeMei}" 
+                           FontSize="Medium" 
+                           WidthRequest="175"
+                           Placeholder="太郎" />
+                    </StackLayout>
+                    <Label Text="お名前（カナ）" FontSize="Medium" TextColor="Green" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                        <Entry Text="{x:Binding RepresentativeSeiKana}" 
+                           FontSize="Medium" 
+                           WidthRequest="175"
+                           Placeholder="タナカ" />
+                        <Entry Text="{x:Binding RepresentativeMeiKana}" 
+                           FontSize="Medium" 
+                           WidthRequest="175"
+                           Placeholder="タロウ" />
+                    </StackLayout>
+                    <Label Text="住所" FontSize="Large" TextColor="Green" />
+                    <Label Text="郵便番号" FontSize="Medium" TextColor="Green" />
+                    <Entry Text="{x:Binding ZipCode}" 
+                           FontSize="Medium" 
+                           Placeholder="000-0000" />
+                    <Label Text="都道府県" FontSize="Medium" TextColor="Green" />
+                    <Picker x:Name="PikerPrefectures"
+                            SelectedItem="{x:Binding Prefecture}"
+                            ItemDisplayBinding="{x:Binding }" />
+                    <Label Text="市区町村" FontSize="Medium" TextColor="Green" />
+                    <Entry Text="{x:Binding Address1}" 
+                           FontSize="Medium" 
+                           Placeholder="中央区" />
+                    <Label Text="町名/番地" FontSize="Medium" TextColor="Green" />
+                    <Entry Text="{x:Binding Address2}" 
+                           FontSize="Medium" 
+                           Placeholder="４丁目12番２号" />
+                    <Label Text="ビル/マンション名など" FontSize="Medium" TextColor="Green" />
+                    <Entry Text="{x:Binding Address3}" 
+                           FontSize="Medium" 
+                           Placeholder="401号室" />
+                    <Label Text="電話番号" FontSize="Medium" TextColor="Green" />
+                    <Entry Text="{x:Binding PhoneNumber}" 
+                           FontSize="Medium" 
+                           Placeholder="000-0000-0000／000-000-0000／00-0000-0000" />
+                    <Label Text="マスター" FontSize="Medium" TextColor="Green" />
+                    <Picker FontSize="Medium" 
+                            ItemsSource="{x:Binding Masters}"
+                            ItemDisplayBinding="{x:Binding Name}"
+                            SelectedItem="{x:Binding Master}"
+                            SelectedIndex="0" />
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Spacing="5" Padding="15">
+                <Button Text="登録" BackgroundColor="#E58852" TextColor="White"
+                        CornerRadius="10"
+                        Command="{Binding RegistrationCreditInfoCommand}"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismSampleByXamarinForms.Views.LoginPage"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="#E4ECEF">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="0,20,0,20" Spacing="10" Padding="15">
+                <Label Text="ようこそ！PrismSampleへ！" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center" />
+                <Label Text="Email" FontSize="Medium" />
+                <Entry Text="{Binding NewEmail.Value}" FontSize="Small" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                    <Button Grid.Column="0" x:Name="ButtonSelectedRollA"
+                        Text="Roll A" BackgroundColor="#50B4A3" TextColor="White" WidthRequest="160"
+                        BorderWidth="5"
+                        BorderColor="Gray"
+                        CornerRadius="10"                        
+                        Clicked="RollA_Clicked"
+                        Command="{Binding SelectedRollACommand}"/>
+                    <Button Grid.Column="1" x:Name="ButtonSelectedRollB"
+                        Text="Roll B" BackgroundColor="#50B4A3" TextColor="White" WidthRequest="160"
+                        BorderWidth="5"
+                        BorderColor="Gray"
+                        CornerRadius="10"                        
+                        Clicked="RollB_Clicked"
+                        Command="{Binding SelectedRollBCommand}"/>
+                </StackLayout>
+                <Button Text="新規登録" BackgroundColor="#E58852" TextColor="White"
+                        CornerRadius="10"
+                        Command="{Binding CreateUserCommand}"/>
+            </StackLayout>
+            <StackLayout Spacing="10" Padding="15">
+                <Label Text="Email" FontSize="Medium" />
+                <Entry Text="{Binding Email.Value}" FontSize="Small" />
+                <Label Text="Password" FontSize="Medium" />
+                <Entry Text="{Binding Password.Value}" FontSize="Small" />
+                <Button Text="ログイン" BackgroundColor="#E58852" TextColor="White"
+                        CornerRadius="10"
+                        Command="{Binding LoginCommand}"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="パスワードを忘れた方はこちら" BackgroundColor="#E4ECEF" TextColor="Green"
+                        Clicked="RePasswordButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
